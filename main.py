@@ -5,9 +5,14 @@ st = 'as 23 fdfdg544' #введена строка
 '''
 
 st = 'as 23 fdfdg544'
-
+s = []
 for i in st:
-   print(i, ' = ', st.count(i))
+   s.append((i, st.count(i)))
+s.sort()
+for j in range(1, len(s)):
+   if s[j] != s[j-1]:
+      print(s[j])
+
 
 
 '''
@@ -19,12 +24,7 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 '''
 '''
 numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-list = []
-for i in numbers:
-    if i > 4:
-        list.append('GT')
-    else:
-        list.append('LT')
+list = ['GT' if i > 4 else 'LT' for i in numbers]
 print(list)
 '''
 
@@ -40,10 +40,6 @@ list2 = [-1, 7, 10, -5, -2]
 '''
 list1 = [1, 2, 3, 4, 5]
 list2 = [-1, 7, 10, -5, -2]
-t = []
-for i in list1:
-    for j in list2:
-        if i + j == 0:
-            t.append((i, j))
+t = [(i, j) for i in list1 for j in list2 if i + j == 0]
 print(t)
 '''
